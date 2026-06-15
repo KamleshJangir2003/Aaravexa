@@ -97,7 +97,7 @@ function getNavbar(activePage) {
   <nav class="navbar" id="navbar">
     <div class="container nav-inner">
       <a href="${base}index.html" class="logo">
-        <img src="${base}image/aaravexa-logo-removebg-preview.png" alt="Aaravexa Technologies" style="height:75px;width:auto;display:block;" />
+        <img src="${base}image/aaravexa-logo-removebg-preview.png" alt="Aaravexa Technology" style="height:75px;width:auto;display:block;" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="${base}index.html"${activePage === 'Home' ? ' class="nav-active"' : ''}>Home</a></li>
@@ -133,7 +133,7 @@ function getFooter() {
       <div class="footer-top">
         <div class="footer-brand">
           <a href="${base}index.html" class="logo logo-footer">
-            <img src="${base}image/aaravexa-logo-removebg-preview.png" alt="Aaravexa Technologies" style="height:75px;width:auto;display:block;" />
+            <img src="${base}image/aaravexa-logo-removebg-preview.png" alt="Aaravexa Technology" style="height:75px;width:auto;display:block;" />
           </a>
           <p class="footer-tagline">Building the Future with AI</p>
           <p class="footer-desc">We craft digital solutions that drive real business growth — websites, apps, AI tools & cloud infrastructure.</p>
@@ -173,7 +173,7 @@ function getFooter() {
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 Aaravexa Technologies. All rights reserved.</p>
+        <p>© 2025 Aaravexa Technology. All rights reserved.</p>
         <p>🚀 Web • App • AI Solutions &nbsp;|&nbsp; 💻 Software • Cloud • Automation</p>
       </div>
     </div>
