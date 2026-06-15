@@ -133,7 +133,7 @@ function getFooter() {
       <div class="footer-top">
         <div class="footer-brand">
           <a href="${base}index.html" class="logo logo-footer">
-            <img src="${base}image/aaravexa-logo-removebg-preview.png" alt="Aaravexa Technology" style="height:75px;width:auto;display:block;" />
+            <img src="${base}image/footer-logo.png" alt="Aaravexa Technology" style="height:60px;width:auto;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:high-quality;-ms-interpolation-mode:bicubic;" />
           </a>
           <p class="footer-tagline">Building the Future with AI</p>
           <p class="footer-desc">We craft digital solutions that drive real business growth — websites, apps, AI tools & cloud infrastructure.</p>
