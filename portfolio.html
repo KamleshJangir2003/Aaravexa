@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="image/favicon.ico"/><title>Portfolio — Aaravexa Technologies</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ── PORTFOLIO HERO ── */
+    .port-hero {
+      background: linear-gradient(135deg, #020818 0%, #041B55 50%, #0A2E8A 100%);
+      padding: 140px 24px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .port-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(22,125,255,.18) 0%, transparent 70%);
+    }
+    .port-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .port-hero-inner { position: relative; z-index: 1; }
+    .port-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(22,125,255,.15); border: 1px solid rgba(22,125,255,.35);
+      color: #7eb8ff; font-size: .8rem; font-weight: 600;
+      padding: 8px 20px; border-radius: 100px; margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .port-hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800; color: #fff; line-height: 1.1;
+      margin-bottom: 20px; letter-spacing: -1px;
+    }
+    .port-hero p {
+      color: rgba(255,255,255,.6); font-size: 1.05rem;
+      max-width: 520px; margin: 0 auto 48px; line-height: 1.7;
+    }
+    .port-hero-stats {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: wrap;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px; padding: 8px;
+      max-width: 600px; margin: 0 auto;
+      backdrop-filter: blur(12px);
+    }
+    .port-stat {
+      flex: 1; min-width: 120px; text-align: center;
+      padding: 20px 16px;
+    }
+    .port-stat strong {
+      display: block; font-size: 1.8rem;
+      font-weight: 800; color: #fff; line-height: 1;
+    }
+    .port-stat span { font-size: .75rem; color: rgba(255,255,255,.5); font-weight: 500; }
+    .port-stat-div { width: 1px; background: rgba(255,255,255,.1); align-self: stretch; margin: 8px 0; }
+
+    /* ── FILTER BAR ── */
+    .port-filter-section {
+      background: #060f2a;
+      padding: 40px 0;
+      position: sticky; top: 68px; z-index: 100;
+      border-bottom: 1px solid rgba(22,125,255,.1);
+    }
+    .port-filter-wrap {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; flex-wrap: wrap;
+    }
+    .pf-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 20px; border-radius: 100px;
+      border: 1.5px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+      font-family: 'Poppins', sans-serif;
+      font-size: .82rem; font-weight: 600;
+      color: rgba(255,255,255,.55); cursor: pointer; transition: all .25s;
+    }
+    .pf-btn i { font-size: .75rem; }
+    .pf-btn:hover { border-color: rgba(22,125,255,.5); color: #7eb8ff; background: rgba(22,125,255,.08); }
+    .pf-btn.active {
+      background: var(--accent); border-color: var(--accent);
+      color: #fff; box-shadow: 0 4px 20px rgba(22,125,255,.4);
+    }
+
+    /* ── PROJECTS SECTION ── */
+    .port-projects {
+      background: #060f2a;
+      padding: 60px 0 100px;
+    }
+
+    /* ── FEATURED PROJECT ── */
+    .port-featured {
+      background: linear-gradient(135deg, rgba(22,125,255,.12), rgba(4,27,85,.4));
+      border: 1px solid rgba(22,125,255,.2);
+      border-radius: 28px; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr;
+      margin-bottom: 48px; position: relative;
+      transition: all .4s;
+    }
+    .port-featured:hover {
+      border-color: rgba(22,125,255,.5);
+      box-shadow: 0 30px 80px rgba(22,125,255,.15);
+      transform: translateY(-4px);
+    }
+    .port-featured-badge {
+      position: absolute; top: 24px; left: 24px; z-index: 2;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #fff; font-size: .7rem; font-weight: 700;
+      padding: 5px 14px; border-radius: 100px; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .port-featured-visual {
+      position: relative; min-height: 380px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .port-featured-visual img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: .25;
+    }
+    .port-featured-visual .pf-icon {
+      position: relative; z-index: 1;
+      font-size: 6rem; color: rgba(255,255,255,.7);
+      text-shadow: 0 0 60px rgba(22,125,255,.8);
+    }
+    .port-featured-content {
+      padding: 52px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .port-featured-content .p-tag-dark {
+      display: inline-block; background: rgba(22,125,255,.2);
+      color: #7eb8ff; font-size: .72rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 6px; margin-bottom: 16px;
+      border: 1px solid rgba(22,125,255,.3);
+    }
+    .port-featured-content h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.2;
+    }
+    .port-featured-content > p {
+      color: rgba(255,255,255,.6); font-size: .9rem;
+      line-height: 1.75; margin-bottom: 24px;
+    }
+    .pf-tech-dark { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+    .pf-tech-dark span {
+      background: rgba(255,255,255,.07); color: rgba(255,255,255,.7);
+      font-size: .72rem; font-weight: 600; padding: 5px 12px;
+      border-radius: 6px; border: 1px solid rgba(255,255,255,.1);
+    }
+    .pf-stats-dark { display: flex; gap: 24px; margin-bottom: 32px; }
+    .pf-stats-dark > div { text-align: center; }
+    .pf-stats-dark strong {
+      display: block; font-size: 1.6rem;
+      font-weight: 800; color: #7eb8ff;
+    }
+    .pf-stats-dark span { font-size: .72rem; color: rgba(255,255,255,.45); }
+    .btn-port {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      padding: 13px 28px; border-radius: 10px;
+      font-size: .875rem; font-weight: 600;
+      text-decoration: none; transition: all .2s; width: fit-content;
+      box-shadow: 0 8px 24px rgba(22,125,255,.35);
+    }
+    .btn-port:hover { background: #0f69d9; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(22,125,255,.5); }
+
+    /* ── CARDS GRID ── */
+    .port-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .port-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; overflow: hidden;
+      transition: all .35s; cursor: pointer;
+      display: flex; flex-direction: column;
+    }
+    .port-card:hover {
+      border-color: rgba(22,125,255,.4);
+      box-shadow: 0 20px 60px rgba(22,125,255,.12);
+      transform: translateY(-8px);
+      background: rgba(22,125,255,.05);
+    }
+    .port-card-thumb {
+      height: 200px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .port-card-thumb img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: .3;
+      transition: opacity .35s, transform .35s;
+    }
+    .port-card:hover .port-card-thumb img { opacity: .45; transform: scale(1.05); }
+    .port-card-thumb .pc-icon {
+      position: relative; z-index: 1;
+      font-size: 3rem; color: rgba(255,255,255,.75);
+      text-shadow: 0 0 40px rgba(22,125,255,.7);
+      transition: transform .35s;
+    }
+    .port-card:hover .pc-icon { transform: scale(1.15); }
+    .port-card-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      opacity: 0; transition: opacity .35s;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(22,125,255,.15); backdrop-filter: blur(4px);
+    }
+    .port-card:hover .port-card-overlay { opacity: 1; }
+    .pc-view-btn {
+      background: #fff; color: var(--accent);
+      font-size: .8rem; font-weight: 700; padding: 10px 22px;
+      border-radius: 100px; display: flex; align-items: center; gap: 6px;
+      text-decoration: none; transform: translateY(12px); transition: transform .3s;
+    }
+    .port-card:hover .pc-view-btn { transform: translateY(0); }
+    .port-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .port-card-body .p-tag-dark {
+      display: inline-block; background: rgba(22,125,255,.15);
+      color: #7eb8ff; font-size: .68rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 5px; margin-bottom: 12px;
+      border: 1px solid rgba(22,125,255,.25);
+    }
+    .port-card-body h3 {
+      font-size: 1rem; font-weight: 700; color: #fff;
+      margin-bottom: 10px; line-height: 1.35;
+    }
+    .port-card-body > p {
+      font-size: .82rem; color: rgba(255,255,255,.5);
+      line-height: 1.65; margin-bottom: 16px; flex: 1;
+    }
+    .port-card-tech { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+    .port-card-tech span {
+      background: rgba(255,255,255,.06); color: rgba(255,255,255,.55);
+      font-size: .68rem; font-weight: 600; padding: 3px 10px;
+      border-radius: 4px; border: 1px solid rgba(255,255,255,.08);
+    }
+    .port-card-stats { display: flex; gap: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.07); }
+    .port-card-stats > div { text-align: center; }
+    .port-card-stats strong { display: block; font-size: 1.1rem; font-weight: 800; color: #7eb8ff; }
+    .port-card-stats span { font-size: .68rem; color: rgba(255,255,255,.4); }
+
+    /* ── PROCESS SECTION ── */
+    .port-process {
+      background: #040d1f;
+      padding: 100px 0;
+    }
+    .port-process-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; position: relative;
+    }
+    .port-process-grid::before {
+      content: '';
+      position: absolute; top: 32px; left: 10%; right: 10%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(22,125,255,.4), transparent);
+    }
+    .pp-step { text-align: center; padding: 0 16px; }
+    .pp-num {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, #041B55, #167DFF);
+      border: 2px solid rgba(22,125,255,.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; font-weight: 800; color: #fff;
+      margin: 0 auto 20px; position: relative; z-index: 1;
+      box-shadow: 0 8px 24px rgba(22,125,255,.3);
+    }
+    .pp-step h4 { font-size: .88rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .pp-step p { font-size: .75rem; color: rgba(255,255,255,.45); line-height: 1.6; }
+
+    /* ── TECH STACK SECTION ── */
+    .port-stack {
+      background: #060f2a;
+      padding: 80px 0;
+      border-top: 1px solid rgba(22,125,255,.1);
+    }
+    .port-stack-grid {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    }
+    .stack-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 10px 20px; border-radius: 100px;
+      color: rgba(255,255,255,.65); font-size: .82rem; font-weight: 500;
+      transition: all .2s;
+    }
+    .stack-pill:hover { border-color: rgba(22,125,255,.5); color: #7eb8ff; background: rgba(22,125,255,.08); }
+    .stack-pill i { font-size: 1rem; color: var(--accent); }
+
+    /* ── CTA SECTION ── */
+    .port-cta {
+      background: #040d1f;
+      padding: 100px 0;
+    }
+    .port-cta-box {
+      background: linear-gradient(135deg, rgba(22,125,255,.12), rgba(4,27,85,.4));
+      border: 1px solid rgba(22,125,255,.25);
+      border-radius: 28px; padding: 72px 48px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .port-cta-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(22,125,255,.12), transparent 70%);
+    }
+    .port-cta-box > * { position: relative; z-index: 1; }
+    .port-cta-box h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; color: #fff; margin-bottom: 14px; }
+    .port-cta-box p { color: rgba(255,255,255,.6); font-size: 1rem; margin-bottom: 36px; line-height: 1.7; }
+    .port-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-cta-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 2px solid rgba(255,255,255,.25); color: rgba(255,255,255,.8);
+      padding: 13px 28px; border-radius: 10px;
+      font-size: .875rem; font-weight: 600;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-cta-outline:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.05); }
+
+    /* Section heading for dark sections */
+    .section-head-dark { text-align: center; margin-bottom: 56px; }
+    .section-head-dark .section-tag { color: #7eb8ff; }
+    .section-head-dark h2 { color: #fff; font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; margin-bottom: 12px; letter-spacing: -.5px; }
+    .section-head-dark p { color: rgba(255,255,255,.45); font-size: .95rem; max-width: 500px; margin: 0 auto; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .port-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .port-process-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .port-process-grid::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .port-featured { grid-template-columns: 1fr; }
+      .port-featured-visual { min-height: 200px; }
+      .port-featured-content { padding: 32px 28px; }
+      .port-cards-grid { grid-template-columns: 1fr; }
+      .port-process-grid { grid-template-columns: repeat(2, 1fr); }
+      .port-hero-stats { gap: 0; }
+      .port-cta-box { padding: 48px 24px; }
+      .port-filter-section { position: static; }
+    }
+    @media (max-width: 480px) {
+      .port-process-grid { grid-template-columns: 1fr; }
+      .pf-stats-dark { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<!-- ── HERO ── -->
+<section class="port-hero">
+  <div class="container">
+    <div class="port-hero-inner fade-up">
+      <div class="port-hero-badge">
+        <i class="fa-solid fa-trophy"></i>
+        Our Work & Case Studies
+      </div>
+      <h1>Projects That <span class="gradient-text">Drive Results</span></h1>
+      <p>Real products built for real businesses — from AI chatbots to full-scale platforms. Here's what we've delivered.</p>
+      <div class="port-hero-stats">
+        <div class="port-stat">
+          <strong>50+</strong>
+          <span>Projects Delivered</span>
+        </div>
+        <div class="port-stat-div"></div>
+        <div class="port-stat">
+          <strong>98%</strong>
+          <span>Client Satisfaction</span>
+        </div>
+        <div class="port-stat-div"></div>
+        <div class="port-stat">
+          <strong>20+</strong>
+          <span>Industries Served</span>
+        </div>
+        <div class="port-stat-div"></div>
+        <div class="port-stat">
+          <strong>2+</strong>
+          <span>Years Experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FILTER ── -->
+<section class="port-filter-section">
+  <div class="container">
+    <div class="port-filter-wrap">
+      <button class="pf-btn active" data-filter="all"><i class="fa-solid fa-grid-2"></i> All Projects</button>
+      <button class="pf-btn" data-filter="ai"><i class="fa-solid fa-brain"></i> AI Solutions</button>
+      <button class="pf-btn" data-filter="web"><i class="fa-solid fa-globe"></i> Web Dev</button>
+      <button class="pf-btn" data-filter="app"><i class="fa-solid fa-mobile-screen"></i> Mobile Apps</button>
+      <button class="pf-btn" data-filter="ecommerce"><i class="fa-solid fa-cart-shopping"></i> E-Commerce</button>
+      <button class="pf-btn" data-filter="software"><i class="fa-solid fa-gears"></i> Software</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section class="port-projects">
+  <div class="container">
+
+    <!-- Featured Card -->
+    <div class="port-featured fade-up" data-cat="ai" id="featuredCard">
+      <span class="port-featured-badge"><i class="fa-solid fa-star"></i> Featured Project</span>
+      <div class="port-featured-visual" style="background: linear-gradient(135deg,#041B55,#167DFF);">
+        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&q=80" alt="AI Chatbot" loading="lazy"/>
+        <i class="fa-solid fa-robot pf-icon"></i>
+      </div>
+      <div class="port-featured-content">
+        <span class="p-tag-dark">AI Solutions</span>
+        <h2>AI Customer Support Bot</h2>
+        <p>Automated WhatsApp + Web chatbot for a major e-commerce brand. Reduced support tickets by 80%, improved response time to under 5 seconds, and handled 10,000+ monthly conversations autonomously using GPT-4.</p>
+        <div class="pf-tech-dark">
+          <span>Python</span><span>OpenAI GPT-4</span><span>Node.js</span><span>WhatsApp API</span><span>Redis</span>
+        </div>
+        <div class="pf-stats-dark">
+          <div><strong>80%</strong><span>Ticket Reduction</span></div>
+          <div><strong>&lt;5s</strong><span>Response Time</span></div>
+          <div><strong>10K+</strong><span>Monthly Users</span></div>
+        </div>
+        <a href="contact.html" class="btn-port"><i class="fa-solid fa-rocket"></i> Build Similar Project</a>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="port-cards-grid" id="portfolioGrid">
+
+      <div class="port-card fade-up" data-cat="ecommerce">
+        <div class="port-card-thumb" style="background: linear-gradient(135deg,#0A2E8A,#43a8ff);">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&q=80" alt="E-Commerce" loading="lazy"/>
+          <i class="fa-solid fa-cart-shopping pc-icon"></i>
+          <div class="port-card-overlay">
+            <a href="contact.html" class="pc-view-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Details</a>
+          </div>
+        </div>
+        <div class="port-card-body">
+          <span class="p-tag-dark">E-Commerce</span>
+          <h3>Multi-Vendor Marketplace</h3>
+          <p>Full-featured marketplace with vendor dashboards, Razorpay payments, real-time inventory, and custom admin panel.</p>
+          <div class="port-card-tech"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Razorpay</span></div>
+          <div class="port-card-stats">
+            <div><strong>50+</strong><span>Vendors</span></div>
+            <div><strong>5K+</strong><span>Products</span></div>
+            <div><strong>99.9%</strong><span>Uptime</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card fade-up" data-cat="app">
+        <div class="port-card-thumb" style="background: linear-gradient(135deg,#167DFF,#7eb8ff);">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&q=80" alt="Mobile App" loading="lazy"/>
+          <i class="fa-solid fa-mobile-screen pc-icon"></i>
+          <div class="port-card-overlay">
+            <a href="contact.html" class="pc-view-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Details</a>
+          </div>
+        </div>
+        <div class="port-card-body">
+          <span class="p-tag-dark">Mobile App</span>
+          <h3>Delivery Tracking App</h3>
+          <p>Real-time GPS delivery tracking with live updates, push notifications, driver management, and order tracking.</p>
+          <div class="port-card-tech"><span>Flutter</span><span>Firebase</span><span>Google Maps</span><span>Node.js</span></div>
+          <div class="port-card-stats">
+            <div><strong>4.8★</strong><span>App Rating</span></div>
+            <div><strong>2K+</strong><span>Downloads</span></div>
+            <div><strong>Live</strong><span>Tracking</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card fade-up" data-cat="software">
+        <div class="port-card-thumb" style="background: linear-gradient(135deg,#041B55,#43a8ff);">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="School ERP" loading="lazy"/>
+          <i class="fa-solid fa-gears pc-icon"></i>
+          <div class="port-card-overlay">
+            <a href="contact.html" class="pc-view-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Details</a>
+          </div>
+        </div>
+        <div class="port-card-body">
+          <span class="p-tag-dark">Custom Software</span>
+          <h3>School Management ERP</h3>
+          <p>Complete school ERP covering admissions, attendance, fee management, timetables, exam results, and communication.</p>
+          <div class="port-card-tech"><span>React</span><span>Python</span><span>PostgreSQL</span><span>AWS</span></div>
+          <div class="port-card-stats">
+            <div><strong>500+</strong><span>Students</span></div>
+            <div><strong>30+</strong><span>Teachers</span></div>
+            <div><strong>100%</strong><span>Digital</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card fade-up" data-cat="web">
+        <div class="port-card-thumb" style="background: linear-gradient(135deg,#0A2E8A,#167DFF);">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&q=80" alt="Real Estate" loading="lazy"/>
+          <i class="fa-solid fa-building pc-icon"></i>
+          <div class="port-card-overlay">
+            <a href="contact.html" class="pc-view-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Details</a>
+          </div>
+        </div>
+        <div class="port-card-body">
+          <span class="p-tag-dark">Web Development</span>
+          <h3>Real Estate Portal</h3>
+          <p>Property listing portal with advanced filters, virtual tours, EMI calculator, and an agent dashboard built on Next.js.</p>
+          <div class="port-card-tech"><span>Next.js</span><span>Node.js</span><span>MySQL</span><span>AWS S3</span></div>
+          <div class="port-card-stats">
+            <div><strong>1K+</strong><span>Listings</span></div>
+            <div><strong>300%</strong><span>Lead Growth</span></div>
+            <div><strong>SEO</strong><span>Optimized</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card fade-up" data-cat="ai">
+        <div class="port-card-thumb" style="background: linear-gradient(135deg,#167DFF,#041B55);">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&q=80" alt="AI Content" loading="lazy"/>
+          <i class="fa-solid fa-brain pc-icon"></i>
+          <div class="port-card-overlay">
+            <a href="contact.html" class="pc-view-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Details</a>
+          </div>
+        </div>
+        <div class="port-card-body">
+          <span class="p-tag-dark">AI Solutions</span>
+          <h3>AI Content Generator SaaS</h3>
+          <p>SaaS platform generating SEO blogs, social captions, product descriptions, and ad copy using fine-tuned AI models.</p>
+          <div class="port-card-tech"><span>Python</span><span>GPT-4</span><span>React</span><span>Stripe</span></div>
+          <div class="port-card-stats">
+            <div><strong>200+</strong><span>Users</span></div>
+            <div><strong>10x</strong><span>Faster</span></div>
+            <div><strong>SaaS</strong><span>Platform</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card fade-up" data-cat="app">
+        <div class="port-card-thumb" style="background: linear-gradient(135deg,#0A2E8A,#7eb8ff);">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80" alt="Healthcare" loading="lazy"/>
+          <i class="fa-solid fa-hospital-user pc-icon"></i>
+          <div class="port-card-overlay">
+            <a href="contact.html" class="pc-view-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Details</a>
+          </div>
+        </div>
+        <div class="port-card-body">
+          <span class="p-tag-dark">Mobile App</span>
+          <h3>Healthcare Booking App</h3>
+          <p>Doctor appointment booking app with video consultations, prescription management, and health record tracking.</p>
+          <div class="port-card-tech"><span>React Native</span><span>Node.js</span><span>MongoDB</span><span>WebRTC</span></div>
+          <div class="port-card-stats">
+            <div><strong>1K+</strong><span>Doctors</span></div>
+            <div><strong>15K+</strong><span>Patients</span></div>
+            <div><strong>Video</strong><span>Consult</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="port-process">
+  <div class="container">
+    <div class="section-head-dark fade-up">
+      <span class="section-tag">How We Work</span>
+      <h2>Our Development Process</h2>
+      <p>A proven 5-step process that ensures on-time delivery and quality results every time.</p>
+    </div>
+    <div class="port-process-grid">
+      <div class="pp-step fade-up">
+        <div class="pp-num">01</div>
+        <h4>Discovery & Planning</h4>
+        <p>Deep dive into your requirements, goals, and business needs to create a solid project blueprint.</p>
+      </div>
+      <div class="pp-step fade-up">
+        <div class="pp-num">02</div>
+        <h4>UI/UX Design</h4>
+        <p>Figma wireframes and high-fidelity prototypes reviewed and approved by you before development starts.</p>
+      </div>
+      <div class="pp-step fade-up">
+        <div class="pp-num">03</div>
+        <h4>Development</h4>
+        <p>Agile sprints with weekly demos. Clean, documented code following best practices throughout.</p>
+      </div>
+      <div class="pp-step fade-up">
+        <div class="pp-num">04</div>
+        <h4>QA & Testing</h4>
+        <p>Thorough testing across devices, browsers, and edge cases before anything goes live.</p>
+      </div>
+      <div class="pp-step fade-up">
+        <div class="pp-num">05</div>
+        <h4>Launch & Support</h4>
+        <p>Smooth deployment with 30 days free post-launch support. You own all source code and assets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH STACK ── -->
+<section class="port-stack">
+  <div class="container">
+    <div class="section-head-dark fade-up">
+      <span class="section-tag">Technologies</span>
+      <h2>Tech Stack We Master</h2>
+    </div>
+    <div class="port-stack-grid fade-up">
+      <div class="stack-pill"><i class="fa-brands fa-react"></i> React.js</div>
+      <div class="stack-pill"><i class="fa-solid fa-n"></i> Next.js</div>
+      <div class="stack-pill"><i class="fa-brands fa-node-js"></i> Node.js</div>
+      <div class="stack-pill"><i class="fa-brands fa-python"></i> Python</div>
+      <div class="stack-pill"><i class="fa-solid fa-mobile-screen"></i> Flutter</div>
+      <div class="stack-pill"><i class="fa-brands fa-react"></i> React Native</div>
+      <div class="stack-pill"><i class="fa-solid fa-database"></i> MongoDB</div>
+      <div class="stack-pill"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+      <div class="stack-pill"><i class="fa-brands fa-aws"></i> AWS</div>
+      <div class="stack-pill"><i class="fa-solid fa-fire"></i> Firebase</div>
+      <div class="stack-pill"><i class="fa-solid fa-brain"></i> OpenAI GPT-4</div>
+      <div class="stack-pill"><i class="fa-brands fa-docker"></i> Docker</div>
+      <div class="stack-pill"><i class="fa-solid fa-robot"></i> LangChain</div>
+      <div class="stack-pill"><i class="fa-brands fa-stripe"></i> Stripe / Razorpay</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="port-cta">
+  <div class="container">
+    <div class="port-cta-box fade-up">
+      <span class="section-tag"><i class="fa-solid fa-rocket"></i> &nbsp;Start Building</span>
+      <h2>Have a Project Idea?<br/>Let's Turn It Into Reality.</h2>
+      <p>From MVPs to enterprise platforms — we've built it all. Free consultation, no commitment required.</p>
+      <div class="port-cta-btns">
+        <a href="contact.html" class="btn-port"><i class="fa-solid fa-paper-plane"></i> Start Your Project</a>
+        <a href="services.html" class="btn-cta-outline"><i class="fa-solid fa-th-large"></i> View Our Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script>
+  initPage('Portfolio');
+
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.pf-btn');
+  const cards = document.querySelectorAll('.port-card');
+  const featured = document.getElementById('featuredCard');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      // Featured card visibility
+      if (featured) {
+        featured.style.display = (filter === 'all' || filter === 'ai') ? 'grid' : 'none';
+      }
+
+      cards.forEach(card => {
+        const show = filter === 'all' || card.dataset.cat === filter;
+        card.style.display = show ? 'flex' : 'none';
+        if (show) {
+          card.style.animation = 'fadeInUp .4s ease forwards';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

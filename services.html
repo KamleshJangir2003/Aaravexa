@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="image/favicon.ico"/><title>Services — Aaravexa Technologies</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ── SERVICES HERO ── */
+    .srv-hero {
+      background: linear-gradient(135deg, #020818 0%, #041B55 55%, #0A2E8A 100%);
+      padding: 140px 24px 100px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .srv-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(22,125,255,.18), transparent 70%);
+    }
+    .srv-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .srv-hero-inner { position: relative; z-index: 1; }
+    .srv-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(22,125,255,.15); border: 1px solid rgba(22,125,255,.35);
+      color: #7eb8ff; font-size: .8rem; font-weight: 600;
+      padding: 8px 20px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .srv-hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800; color: #fff; line-height: 1.1;
+      margin-bottom: 20px; letter-spacing: -1px;
+    }
+    .srv-hero > div > p {
+      color: rgba(255,255,255,.6); font-size: 1.05rem;
+      max-width: 560px; margin: 0 auto 56px; line-height: 1.7;
+    }
+    .srv-cats {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+    .srv-cat-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.75); font-size: .8rem; font-weight: 600;
+      padding: 9px 18px; border-radius: 100px; text-decoration: none;
+      transition: all .25s;
+    }
+    .srv-cat-pill:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .srv-cat-pill i { font-size: .8rem; }
+
+    /* ── OVERVIEW CARDS ── */
+    .srv-overview {
+      background: var(--white); padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .srv-overview-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .srv-ov-card {
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 32px 28px; transition: all .3s; position: relative; overflow: hidden;
+    }
+    .srv-ov-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), #7eb8ff);
+      transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .srv-ov-card:hover::before { transform: scaleX(1); }
+    .srv-ov-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(22,125,255,.1); border-color: var(--accent); }
+    .srv-ov-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: #fff; margin-bottom: 20px;
+    }
+    .srv-ov-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .srv-ov-card p { font-size: .83rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
+    .srv-ov-count { font-size: .75rem; font-weight: 700; color: var(--accent); }
+    .srv-ov-count span { color: var(--text-muted); font-weight: 400; }
+
+    /* ── SECTION DIVIDER ── */
+    .srv-section-divider {
+      display: flex; align-items: center; gap: 16px;
+      padding: 0 0 48px;
+    }
+    .srv-section-divider::before, .srv-section-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .srv-section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--light-bg); border: 1px solid var(--border);
+      padding: 8px 20px; border-radius: 100px;
+      font-size: .78rem; font-weight: 700; color: var(--dark);
+      letter-spacing: .5px; text-transform: uppercase; white-space: nowrap;
+    }
+    .srv-section-label i { color: var(--accent); }
+
+    /* ── SERVICE CATEGORY SECTION ── */
+    .srv-category { padding: 80px 0; }
+    .srv-category.dark-bg {
+      background: #060f2a;
+    }
+    .srv-category.dark-bg .srv-section-divider::before,
+    .srv-category.dark-bg .srv-section-divider::after { background: rgba(255,255,255,.08); }
+    .srv-category.dark-bg .srv-section-label {
+      background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.1);
+      color: #fff;
+    }
+
+    /* ── SERVICE CATEGORY HEADER ── */
+    .srv-cat-header {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 28px; align-items: center; margin-bottom: 48px;
+    }
+    .srv-cat-icon-big {
+      width: 72px; height: 72px; border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; color: #fff; flex-shrink: 0;
+    }
+    .srv-cat-title h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 6px; }
+    .srv-cat-title p { font-size: .9rem; line-height: 1.65; max-width: 600px; }
+    .srv-category:not(.dark-bg) .srv-cat-title h2 { color: var(--dark); }
+    .srv-category:not(.dark-bg) .srv-cat-title p { color: var(--text-muted); }
+    .srv-category.dark-bg .srv-cat-title h2 { color: #fff; }
+    .srv-category.dark-bg .srv-cat-title p { color: rgba(255,255,255,.55); }
+
+    /* ── SERVICE ITEMS GRID ── */
+    .srv-items-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .srv-item {
+      border-radius: 16px; padding: 28px 24px;
+      border: 1px solid; transition: all .3s; position: relative; overflow: hidden;
+    }
+    /* Light variant */
+    .srv-category:not(.dark-bg) .srv-item {
+      background: var(--white); border-color: var(--border);
+    }
+    .srv-category:not(.dark-bg) .srv-item:hover {
+      border-color: var(--accent); box-shadow: 0 16px 40px rgba(22,125,255,.1);
+      transform: translateY(-4px);
+    }
+    /* Dark variant */
+    .srv-category.dark-bg .srv-item {
+      background: rgba(255,255,255,.03); border-color: rgba(255,255,255,.08);
+    }
+    .srv-category.dark-bg .srv-item:hover {
+      border-color: rgba(22,125,255,.45); background: rgba(22,125,255,.06);
+      box-shadow: 0 16px 40px rgba(22,125,255,.12); transform: translateY(-4px);
+    }
+
+    .srv-item-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: #fff; margin-bottom: 16px; flex-shrink: 0;
+    }
+    .srv-item h4 {
+      font-size: .95rem; font-weight: 700; margin-bottom: 8px;
+    }
+    .srv-category:not(.dark-bg) .srv-item h4 { color: var(--dark); }
+    .srv-category.dark-bg .srv-item h4 { color: #fff; }
+
+    .srv-item p {
+      font-size: .8rem; line-height: 1.65; margin-bottom: 14px;
+    }
+    .srv-category:not(.dark-bg) .srv-item p { color: var(--text-muted); }
+    .srv-category.dark-bg .srv-item p { color: rgba(255,255,255,.45); }
+
+    .srv-item-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .srv-item-tags span {
+      font-size: .68rem; font-weight: 600; padding: 3px 10px; border-radius: 4px;
+    }
+    .srv-category:not(.dark-bg) .srv-item-tags span {
+      background: var(--light-bg); color: var(--primary);
+    }
+    .srv-category.dark-bg .srv-item-tags span {
+      background: rgba(255,255,255,.06); color: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* ── WHY US STRIP ── */
+    .srv-why {
+      background: linear-gradient(135deg, #041B55, #0A2E8A);
+      padding: 64px 0;
+    }
+    .srv-why-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center;
+    }
+    .srv-why-item i { font-size: 1.8rem; color: #7eb8ff; margin-bottom: 12px; }
+    .srv-why-item h4 { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .srv-why-item p { font-size: .78rem; color: rgba(255,255,255,.5); line-height: 1.6; }
+
+    /* ── PRICING TEASER ── */
+    .srv-pricing-teaser {
+      background: var(--light-bg); padding: 80px 0;
+    }
+    .srv-pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .srv-price-card {
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: 20px; padding: 36px 28px; text-align: center;
+      transition: all .3s;
+    }
+    .srv-price-card.best {
+      border-color: var(--accent);
+      box-shadow: 0 20px 60px rgba(22,125,255,.15);
+      position: relative;
+    }
+    .srv-price-card.best::before {
+      content: 'Most Popular';
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff;
+      font-size: .7rem; font-weight: 700; padding: 4px 16px; border-radius: 100px;
+    }
+    .srv-price-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(22,125,255,.12); }
+    .srv-price-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .srv-price-card .price { font-size: 2.2rem; font-weight: 800; color: var(--accent); margin: 16px 0; line-height: 1; }
+    .srv-price-card .price small { font-size: .8rem; color: var(--text-muted); font-weight: 500; }
+    .srv-price-card p { font-size: .82rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+    .srv-price-list { list-style: none; text-align: left; margin-bottom: 28px; display: flex; flex-direction: column; gap: 9px; }
+    .srv-price-list li { font-size: .82rem; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .srv-price-list li i { color: var(--accent); font-size: .75rem; flex-shrink: 0; }
+
+    /* ── CTA ── */
+    .srv-cta {
+      background: #040d1f; padding: 100px 0;
+    }
+    .srv-cta-box {
+      background: linear-gradient(135deg, rgba(22,125,255,.12), rgba(4,27,85,.4));
+      border: 1px solid rgba(22,125,255,.25);
+      border-radius: 28px; padding: 72px 48px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .srv-cta-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(22,125,255,.1), transparent 70%);
+    }
+    .srv-cta-box > * { position: relative; z-index: 1; }
+    .srv-cta-box h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; color: #fff; margin-bottom: 14px; }
+    .srv-cta-box p { color: rgba(255,255,255,.6); font-size: 1rem; margin-bottom: 36px; line-height: 1.7; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .srv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-srv-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      padding: 14px 32px; border-radius: 10px;
+      font-size: .9rem; font-weight: 600; text-decoration: none;
+      transition: all .2s; box-shadow: 0 8px 24px rgba(22,125,255,.35);
+    }
+    .btn-srv-primary:hover { background: #0f69d9; transform: translateY(-2px); }
+    .btn-srv-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 2px solid rgba(255,255,255,.25); color: rgba(255,255,255,.8);
+      padding: 14px 32px; border-radius: 10px;
+      font-size: .9rem; font-weight: 600; text-decoration: none; transition: all .2s;
+    }
+    .btn-srv-outline:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.05); }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .srv-overview-grid { grid-template-columns: repeat(2, 1fr); }
+      .srv-items-grid { grid-template-columns: repeat(2, 1fr); }
+      .srv-why-grid { grid-template-columns: repeat(2, 1fr); }
+      .srv-pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    }
+    @media (max-width: 768px) {
+      .srv-overview-grid { grid-template-columns: 1fr; }
+      .srv-items-grid { grid-template-columns: 1fr; }
+      .srv-cat-header { grid-template-columns: 1fr; }
+      .srv-why-grid { grid-template-columns: 1fr 1fr; }
+      .srv-cta-box { padding: 48px 24px; }
+    }
+    @media (max-width: 480px) {
+      .srv-why-grid { grid-template-columns: 1fr; }
+      .srv-cats { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+
+<!-- ── HERO ── -->
+<section class="srv-hero">
+  <div class="container">
+    <div class="srv-hero-inner fade-up">
+      <div class="srv-badge"><i class="fa-solid fa-layer-group"></i> Full-Stack Digital Agency</div>
+      <h1>Everything Your Business<br/><span class="gradient-text">Needs to Grow Online</span></h1>
+      <p>From AI-powered tools to stunning websites, mobile apps to cloud infrastructure — we build it all under one roof.</p>
+      <div class="srv-cats">
+        <a href="#development" class="srv-cat-pill"><i class="fa-solid fa-code"></i> Development</a>
+        <a href="#ai-automation" class="srv-cat-pill"><i class="fa-solid fa-brain"></i> AI & Automation</a>
+        <a href="#design-branding" class="srv-cat-pill"><i class="fa-solid fa-pen-nib"></i> Design & Branding</a>
+        <a href="#growth-marketing" class="srv-cat-pill"><i class="fa-solid fa-chart-line"></i> Growth & Marketing</a>
+        <a href="#cloud-infra" class="srv-cat-pill"><i class="fa-solid fa-cloud"></i> Cloud & Infrastructure</a>
+        <a href="#support-security" class="srv-cat-pill"><i class="fa-solid fa-shield-halved"></i> Support & Security</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OVERVIEW CARDS ── -->
+<section class="srv-overview">
+  <div class="container">
+    <div class="srv-overview-grid">
+      <div class="srv-ov-card fade-up">
+        <div class="srv-ov-icon" style="background:linear-gradient(135deg,#041B55,#167DFF)"><i class="fa-solid fa-code"></i></div>
+        <h3>💻 Development</h3>
+        <p>Web, mobile, software & e-commerce — complete digital product development from scratch to deployment.</p>
+        <div class="srv-ov-count">6 Services <span>included</span></div>
+      </div>
+      <div class="srv-ov-card fade-up">
+        <div class="srv-ov-icon" style="background:linear-gradient(135deg,#167DFF,#7eb8ff)"><i class="fa-solid fa-brain"></i></div>
+        <h3>🤖 AI & Automation</h3>
+        <p>GPT-powered chatbots, workflow automation, Generative AI integration, and intelligent business tools.</p>
+        <div class="srv-ov-count">6 Services <span>included</span></div>
+      </div>
+      <div class="srv-ov-card fade-up">
+        <div class="srv-ov-icon" style="background:linear-gradient(135deg,#0A2E8A,#43a8ff)"><i class="fa-solid fa-pen-nib"></i></div>
+        <h3>🎨 Design & Branding</h3>
+        <p>UI/UX design, logo, brand identity, graphic design, and conversion-focused landing pages.</p>
+        <div class="srv-ov-count">4 Services <span>included</span></div>
+      </div>
+      <div class="srv-ov-card fade-up">
+        <div class="srv-ov-icon" style="background:linear-gradient(135deg,#041B55,#0A2E8A)"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>📈 Growth & Marketing</h3>
+        <p>SEO, paid ads, social media management, performance marketing, and content strategy to scale fast.</p>
+        <div class="srv-ov-count">5 Services <span>included</span></div>
+      </div>
+      <div class="srv-ov-card fade-up">
+        <div class="srv-ov-icon" style="background:linear-gradient(135deg,#167DFF,#041B55)"><i class="fa-solid fa-cloud"></i></div>
+        <h3>☁️ Cloud & Infrastructure</h3>
+        <p>AWS setup, DevOps pipelines, server management, CI/CD, and scalable hosting & deployment solutions.</p>
+        <div class="srv-ov-count">5 Services <span>included</span></div>
+      </div>
+      <div class="srv-ov-card fade-up">
+        <div class="srv-ov-icon" style="background:linear-gradient(135deg,#0A2E8A,#167DFF)"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>🛡️ Support & Security</h3>
+        <p>Website maintenance, technical support, security audits, performance optimization, and bug fixes.</p>
+        <div class="srv-ov-count">4 Services <span>included</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- 01 — DEVELOPMENT -->
+<!-- ════════════════════════════════════ -->
+<section class="srv-category" id="development">
+  <div class="container">
+    <div class="srv-section-divider fade-up">
+      <div class="srv-section-label"><i class="fa-solid fa-code"></i> 01 — Development</div>
+    </div>
+    <div class="srv-cat-header fade-up">
+      <div class="srv-cat-icon-big" style="background:linear-gradient(135deg,#041B55,#167DFF)">
+        <i class="fa-solid fa-laptop-code"></i>
+      </div>
+      <div class="srv-cat-title">
+        <h2>💻 Development Services</h2>
+        <p>End-to-end development of websites, web apps, mobile apps, custom software, and e-commerce platforms — built to perform, scale, and impress.</p>
+      </div>
+    </div>
+    <div class="srv-items-grid">
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#167DFF)"><i class="fa-solid fa-globe"></i></div>
+        <h4>Website Development</h4>
+        <p>Professional business websites, corporate portals, landing pages — fast, SEO-friendly, and beautifully designed.</p>
+        <div class="srv-item-tags"><span>React</span><span>Next.js</span><span>WordPress</span><span>HTML/CSS</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#43a8ff)"><i class="fa-solid fa-window-restore"></i></div>
+        <h4>Web Application Development</h4>
+        <p>Full-stack web apps with complex business logic, real-time features, admin panels, and third-party integrations.</p>
+        <div class="srv-item-tags"><span>React</span><span>Node.js</span><span>MongoDB</span><span>PostgreSQL</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#7eb8ff)"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h4>Mobile App Development</h4>
+        <p>Cross-platform and native Android/iOS apps — from MVP to production-ready apps on Play Store & App Store.</p>
+        <div class="srv-item-tags"><span>Flutter</span><span>React Native</span><span>Firebase</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#0A2E8A)"><i class="fa-solid fa-gears"></i></div>
+        <h4>Custom Software Development</h4>
+        <p>ERP, CRM, HRM, school management, hospital systems, booking platforms — built exactly to your requirements.</p>
+        <div class="srv-item-tags"><span>Python</span><span>Node.js</span><span>AWS</span><span>Docker</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#167DFF)"><i class="fa-solid fa-cart-shopping"></i></div>
+        <h4>E-Commerce Development</h4>
+        <p>Custom online stores, multi-vendor marketplaces, Shopify/WooCommerce development with payment integrations.</p>
+        <div class="srv-item-tags"><span>Shopify</span><span>WooCommerce</span><span>Razorpay</span><span>Stripe</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#041B55)"><i class="fa-solid fa-plug"></i></div>
+        <h4>API Development & Integration</h4>
+        <p>RESTful & GraphQL APIs, third-party integrations (payment, SMS, email, maps), and microservices architecture.</p>
+        <div class="srv-item-tags"><span>REST API</span><span>GraphQL</span><span>Webhooks</span><span>OAuth</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- 02 — AI & AUTOMATION -->
+<!-- ════════════════════════════════════ -->
+<section class="srv-category dark-bg" id="ai-automation">
+  <div class="container">
+    <div class="srv-section-divider fade-up">
+      <div class="srv-section-label"><i class="fa-solid fa-brain"></i> 02 — AI & Automation</div>
+    </div>
+    <div class="srv-cat-header fade-up">
+      <div class="srv-cat-icon-big" style="background:linear-gradient(135deg,#167DFF,#7eb8ff)">
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <div class="srv-cat-title">
+        <h2>🤖 AI & Automation Services</h2>
+        <p>Harness the power of AI to automate workflows, build intelligent chatbots, and integrate cutting-edge Generative AI into your products.</p>
+      </div>
+    </div>
+    <div class="srv-items-grid">
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#7eb8ff)"><i class="fa-solid fa-robot"></i></div>
+        <h4>AI Solutions</h4>
+        <p>Custom AI-powered tools, intelligent dashboards, LLM-based pipelines, and AI analytics for smarter decisions.</p>
+        <div class="srv-item-tags"><span>GPT-4</span><span>LangChain</span><span>Python</span><span>LLM</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#167DFF)"><i class="fa-solid fa-comment-dots"></i></div>
+        <h4>AI Chatbots</h4>
+        <p>WhatsApp, web, and in-app AI chatbots for customer support, lead gen, and sales — available 24/7, no human needed.</p>
+        <div class="srv-item-tags"><span>OpenAI</span><span>WhatsApp API</span><span>Node.js</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#43a8ff)"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h4>AI Automation</h4>
+        <p>Automate repetitive tasks — data entry, email processing, report generation, notifications — with AI-driven workflows.</p>
+        <div class="srv-item-tags"><span>n8n</span><span>Zapier</span><span>Python</span><span>APIs</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#041B55)"><i class="fa-solid fa-microchip-ai"></i></div>
+        <h4>Generative AI Integration</h4>
+        <p>Integrate GPT-4, Claude, Gemini, DALL-E, or Stable Diffusion into your existing products and workflows.</p>
+        <div class="srv-item-tags"><span>GPT-4</span><span>Claude</span><span>Gemini</span><span>DALL-E</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#167DFF)"><i class="fa-solid fa-sitemap"></i></div>
+        <h4>Business Automation</h4>
+        <p>End-to-end business process automation — from CRM workflows to invoice generation and automated reporting.</p>
+        <div class="srv-item-tags"><span>n8n</span><span>Make</span><span>REST API</span><span>Webhooks</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#43a8ff)"><i class="fa-solid fa-cloud-bolt"></i></div>
+        <h4>AI-Powered Cloud Solutions</h4>
+        <p>Deploy AI models on AWS/GCP, build scalable ML pipelines, and integrate intelligent features into cloud infrastructure.</p>
+        <div class="srv-item-tags"><span>AWS SageMaker</span><span>GCP AI</span><span>Docker</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- 03 — DESIGN & BRANDING -->
+<!-- ════════════════════════════════════ -->
+<section class="srv-category" id="design-branding">
+  <div class="container">
+    <div class="srv-section-divider fade-up">
+      <div class="srv-section-label"><i class="fa-solid fa-pen-nib"></i> 03 — Design & Branding</div>
+    </div>
+    <div class="srv-cat-header fade-up">
+      <div class="srv-cat-icon-big" style="background:linear-gradient(135deg,#0A2E8A,#43a8ff)">
+        <i class="fa-solid fa-palette"></i>
+      </div>
+      <div class="srv-cat-title">
+        <h2>🎨 Design & Branding Services</h2>
+        <p>Premium UI/UX design, brand identity, graphic design, and high-converting landing pages that make your brand unforgettable.</p>
+      </div>
+    </div>
+    <div class="srv-items-grid">
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#43a8ff)"><i class="fa-solid fa-pen-nib"></i></div>
+        <h4>UI/UX Design</h4>
+        <p>User-centric website and app design with wireframes, prototypes, and high-fidelity Figma designs that convert.</p>
+        <div class="srv-item-tags"><span>Figma</span><span>Wireframes</span><span>Prototyping</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#0A2E8A)"><i class="fa-solid fa-star"></i></div>
+        <h4>Logo & Brand Identity</h4>
+        <p>Professional logo design, brand guidelines, color palettes, typography, and complete visual identity systems.</p>
+        <div class="srv-item-tags"><span>Adobe AI</span><span>Figma</span><span>Brand Kit</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#167DFF)"><i class="fa-solid fa-image"></i></div>
+        <h4>Graphic Design</h4>
+        <p>Social media creatives, banners, flyers, brochures, presentations, pitch decks, and marketing materials.</p>
+        <div class="srv-item-tags"><span>Canva Pro</span><span>Photoshop</span><span>Illustrator</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#7eb8ff)"><i class="fa-solid fa-bullseye"></i></div>
+        <h4>Landing Page Design</h4>
+        <p>High-converting sales pages, product launch pages, and lead generation funnels designed for maximum conversions.</p>
+        <div class="srv-item-tags"><span>Figma</span><span>React</span><span>CRO</span><span>A/B Testing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- 04 — GROWTH & MARKETING -->
+<!-- ════════════════════════════════════ -->
+<section class="srv-category dark-bg" id="growth-marketing">
+  <div class="container">
+    <div class="srv-section-divider fade-up">
+      <div class="srv-section-label"><i class="fa-solid fa-chart-line"></i> 04 — Growth & Marketing</div>
+    </div>
+    <div class="srv-cat-header fade-up">
+      <div class="srv-cat-icon-big" style="background:linear-gradient(135deg,#041B55,#0A2E8A)">
+        <i class="fa-solid fa-rocket"></i>
+      </div>
+      <div class="srv-cat-title">
+        <h2>📈 Growth & Marketing Services</h2>
+        <p>Data-driven digital marketing strategies to increase visibility, drive qualified traffic, generate leads, and grow revenue consistently.</p>
+      </div>
+    </div>
+    <div class="srv-items-grid">
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#167DFF)"><i class="fa-solid fa-chart-bar"></i></div>
+        <h4>Digital Marketing</h4>
+        <p>Full-funnel digital marketing strategy — from brand awareness to conversion, with measurable ROI every step.</p>
+        <div class="srv-item-tags"><span>Google Ads</span><span>Meta Ads</span><span>Analytics</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#7eb8ff)"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h4>SEO Optimization</h4>
+        <p>On-page, off-page, and technical SEO to rank higher on Google and drive consistent organic traffic to your site.</p>
+        <div class="srv-item-tags"><span>On-Page SEO</span><span>Backlinks</span><span>Technical SEO</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#43a8ff)"><i class="fa-brands fa-instagram"></i></div>
+        <h4>Social Media Management</h4>
+        <p>Content creation, scheduling, community management for Instagram, LinkedIn, Facebook, and YouTube.</p>
+        <div class="srv-item-tags"><span>Instagram</span><span>LinkedIn</span><span>YouTube</span><span>Facebook</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#041B55)"><i class="fa-solid fa-bullhorn"></i></div>
+        <h4>Performance Marketing</h4>
+        <p>Paid advertising campaigns on Google, Meta, and YouTube — optimized for conversions, not just clicks.</p>
+        <div class="srv-item-tags"><span>Google Ads</span><span>Meta Ads</span><span>PPC</span><span>Retargeting</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#43a8ff)"><i class="fa-solid fa-file-pen"></i></div>
+        <h4>Content Strategy</h4>
+        <p>Blog writing, SEO content, email campaigns, ad copy, and a full content calendar to keep your audience engaged.</p>
+        <div class="srv-item-tags"><span>Copywriting</span><span>Email Marketing</span><span>Blog SEO</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- 05 — CLOUD & INFRASTRUCTURE -->
+<!-- ════════════════════════════════════ -->
+<section class="srv-category" id="cloud-infra">
+  <div class="container">
+    <div class="srv-section-divider fade-up">
+      <div class="srv-section-label"><i class="fa-solid fa-cloud"></i> 05 — Cloud & Infrastructure</div>
+    </div>
+    <div class="srv-cat-header fade-up">
+      <div class="srv-cat-icon-big" style="background:linear-gradient(135deg,#167DFF,#041B55)">
+        <i class="fa-brands fa-aws"></i>
+      </div>
+      <div class="srv-cat-title">
+        <h2>☁️ Cloud & Infrastructure Services</h2>
+        <p>Reliable, secure, and cost-optimized cloud infrastructure — from initial setup to ongoing management, DevOps, and 24/7 monitoring.</p>
+      </div>
+    </div>
+    <div class="srv-items-grid">
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#7eb8ff)"><i class="fa-brands fa-aws"></i></div>
+        <h4>AWS / Cloud Setup</h4>
+        <p>Full AWS infrastructure setup — EC2, S3, RDS, Lambda, CloudFront, Route 53, and cost optimization strategies.</p>
+        <div class="srv-item-tags"><span>AWS</span><span>GCP</span><span>DigitalOcean</span><span>VPS</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#167DFF)"><i class="fa-brands fa-docker"></i></div>
+        <h4>DevOps Services</h4>
+        <p>CI/CD pipelines, Docker containerization, Kubernetes orchestration, and automated deployment workflows.</p>
+        <div class="srv-item-tags"><span>Docker</span><span>Kubernetes</span><span>GitHub Actions</span><span>Jenkins</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#0A2E8A)"><i class="fa-solid fa-server"></i></div>
+        <h4>Server Management</h4>
+        <p>Linux server setup, configuration, security hardening, performance tuning, and proactive 24/7 monitoring.</p>
+        <div class="srv-item-tags"><span>Linux</span><span>Nginx</span><span>PM2</span><span>cPanel</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#041B55)"><i class="fa-solid fa-rocket"></i></div>
+        <h4>Hosting & Deployment</h4>
+        <p>Fast, secure website and app hosting with SSL setup, domain configuration, CDN, and zero-downtime deployments.</p>
+        <div class="srv-item-tags"><span>SSL</span><span>CDN</span><span>DNS</span><span>cPanel</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#43a8ff)"><i class="fa-solid fa-database"></i></div>
+        <h4>Database Management</h4>
+        <p>Database architecture, optimization, migration, automated backups, and scaling for high-traffic applications.</p>
+        <div class="srv-item-tags"><span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ -->
+<!-- 06 — SUPPORT & SECURITY -->
+<!-- ════════════════════════════════════ -->
+<section class="srv-category dark-bg" id="support-security">
+  <div class="container">
+    <div class="srv-section-divider fade-up">
+      <div class="srv-section-label"><i class="fa-solid fa-shield-halved"></i> 06 — Support & Security</div>
+    </div>
+    <div class="srv-cat-header fade-up">
+      <div class="srv-cat-icon-big" style="background:linear-gradient(135deg,#0A2E8A,#167DFF)">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <div class="srv-cat-title">
+        <h2>🛡️ Support & Security Services</h2>
+        <p>Keep your digital systems secure, up-to-date, and running at peak performance with proactive support and rapid-response maintenance plans.</p>
+      </div>
+    </div>
+    <div class="srv-items-grid">
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#041B55,#167DFF)"><i class="fa-solid fa-wrench"></i></div>
+        <h4>Website Maintenance</h4>
+        <p>Regular updates, bug fixes, content changes, plugin updates, and ongoing care to keep your website healthy.</p>
+        <div class="srv-item-tags"><span>Monthly Plans</span><span>Bug Fixes</span><span>Updates</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#7eb8ff)"><i class="fa-solid fa-headset"></i></div>
+        <h4>Technical Support</h4>
+        <p>Dedicated technical support for your apps and systems — priority response, quick fixes, and proactive monitoring.</p>
+        <div class="srv-item-tags"><span>Priority Support</span><span>SLA</span><span>24x7</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#0A2E8A,#43a8ff)"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <h4>Security Audit</h4>
+        <p>Comprehensive security assessment — vulnerability scanning, penetration testing, OWASP checks, and hardening recommendations.</p>
+        <div class="srv-item-tags"><span>OWASP</span><span>Pen Testing</span><span>VAPT</span></div>
+      </div>
+      <div class="srv-item fade-up">
+        <div class="srv-item-icon" style="background:linear-gradient(135deg,#167DFF,#041B55)"><i class="fa-solid fa-gauge-high"></i></div>
+        <h4>Performance Optimization</h4>
+        <p>Speed up your website and apps — Core Web Vitals, image optimization, caching, CDN setup, and database tuning.</p>
+        <div class="srv-item-tags"><span>Core Web Vitals</span><span>Caching</span><span>CDN</span><span>GTmetrix</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE US ── -->
+<section class="srv-why">
+  <div class="container">
+    <div class="srv-why-grid">
+      <div class="srv-why-item fade-up">
+        <i class="fa-solid fa-code-branch"></i>
+        <h4>One-Stop Agency</h4>
+        <p>From strategy to launch — design, dev, marketing, and support all under one roof.</p>
+      </div>
+      <div class="srv-why-item fade-up">
+        <i class="fa-solid fa-clock"></i>
+        <h4>On-Time Delivery</h4>
+        <p>Sprint-based development with weekly updates. We've never missed a deadline.</p>
+      </div>
+      <div class="srv-why-item fade-up">
+        <i class="fa-solid fa-lock"></i>
+        <h4>You Own Everything</h4>
+        <p>Full source code, design files, and assets handed over on project completion. Always.</p>
+      </div>
+      <div class="srv-why-item fade-up">
+        <i class="fa-solid fa-headset"></i>
+        <h4>30 Days Free Support</h4>
+        <p>Every project includes 30 days of free post-launch support. No hidden charges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING TEASER ── -->
+<section class="srv-pricing-teaser">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="section-tag">Transparent Pricing</span>
+      <h2>Simple, Honest Pricing</h2>
+      <p>No hidden charges. No surprises. Just clear value for every rupee you invest.</p>
+    </div>
+    <div class="srv-pricing-grid">
+      <div class="srv-price-card fade-up">
+        <h3>Starter</h3>
+        <p>Perfect for small businesses & startups just getting online.</p>
+        <div class="price">₹9,999 <small>onwards</small></div>
+        <ul class="srv-price-list">
+          <li><i class="fa-solid fa-check"></i> 5-page responsive website</li>
+          <li><i class="fa-solid fa-check"></i> Mobile-optimized design</li>
+          <li><i class="fa-solid fa-check"></i> Contact form & basic SEO</li>
+          <li><i class="fa-solid fa-check"></i> 7-day delivery</li>
+          <li><i class="fa-solid fa-check"></i> 15 days free support</li>
+        </ul>
+        <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;">Get Started →</a>
+      </div>
+      <div class="srv-price-card best fade-up">
+        <h3>Business</h3>
+        <p>For growing businesses needing a complete digital presence.</p>
+        <div class="price">₹29,999 <small>onwards</small></div>
+        <ul class="srv-price-list">
+          <li><i class="fa-solid fa-check"></i> Custom web application</li>
+          <li><i class="fa-solid fa-check"></i> UI/UX design in Figma</li>
+          <li><i class="fa-solid fa-check"></i> Payment & API integrations</li>
+          <li><i class="fa-solid fa-check"></i> Admin panel included</li>
+          <li><i class="fa-solid fa-check"></i> 30 days free support</li>
+        </ul>
+        <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;">Most Popular →</a>
+      </div>
+      <div class="srv-price-card fade-up">
+        <h3>Enterprise</h3>
+        <p>Full-scale platforms, AI integration, and dedicated team.</p>
+        <div class="price">Custom <small>pricing</small></div>
+        <ul class="srv-price-list">
+          <li><i class="fa-solid fa-check"></i> Complete product development</li>
+          <li><i class="fa-solid fa-check"></i> AI & automation integration</li>
+          <li><i class="fa-solid fa-check"></i> Cloud & DevOps setup</li>
+          <li><i class="fa-solid fa-check"></i> Dedicated project manager</li>
+          <li><i class="fa-solid fa-check"></i> 90 days support & SLA</li>
+        </ul>
+        <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;">Let's Talk →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="srv-cta">
+  <div class="container">
+    <div class="srv-cta-box fade-up">
+      <span class="section-tag" style="color:#7eb8ff;"><i class="fa-solid fa-comments"></i> &nbsp;Free Consultation</span>
+      <h2>Not Sure Which Service You Need?</h2>
+      <p>Book a free 30-minute consultation and we'll figure out the best solution for your business — no commitment required.</p>
+      <div class="srv-cta-btns">
+        <a href="contact.html" class="btn-srv-primary"><i class="fa-solid fa-calendar-check"></i> Book Free Consultation</a>
+        <a href="portfolio.html" class="btn-srv-outline"><i class="fa-solid fa-briefcase"></i> View Our Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script>initPage('Services');</script>
+</body>
+</html>
