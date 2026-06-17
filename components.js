@@ -8,28 +8,40 @@ function getNavbar(activePage) {
     {
       icon: 'fa-laptop-code', label: '💻 Development', color: '#167DFF',
       items: [
-        { href: base+'services/website-development.html',  icon: 'fa-globe',          label: 'Website Development' },
-        { href: base+'services/web-app-development.html',  icon: 'fa-window-restore', label: 'Web App Development' },
-        { href: base+'services/mobile-app-development.html', icon: 'fa-mobile-screen', label: 'Mobile App Development' },
-        { href: base+'services/custom-software.html',      icon: 'fa-gears',          label: 'Custom Software' },
-        { href: base+'services/ecommerce-development.html', icon: 'fa-cart-shopping', label: 'E-Commerce Development' },
-        { href: base+'services/api-development.html',      icon: 'fa-plug',           label: 'API Development & Integration' },
+        { href: base+'services/website-development.html',    icon: 'fa-globe',          label: 'Website Development' },
+        { href: base+'services/web-app-development.html',    icon: 'fa-window-restore', label: 'Web App Development' },
+        { href: base+'services/mobile-app-development.html', icon: 'fa-mobile-screen',  label: 'Mobile App Development' },
+        { href: base+'services/custom-software.html',        icon: 'fa-gears',          label: 'Custom Software' },
+        { href: base+'services/ecommerce-development.html',  icon: 'fa-cart-shopping',  label: 'E-Commerce Development' },
+        { href: base+'services/api-development.html',        icon: 'fa-plug',           label: 'API Development' },
       ]
     },
     {
-      icon: 'fa-brain', label: '🤖 AI & Automation', color: '#7eb8ff',
+      icon: 'fa-wand-magic-sparkles', label: '✨ AI Generation', color: '#a855f7',
       items: [
-        { href: base+'services/ai-chatbots.html',       icon: 'fa-robot',               label: 'AI Solutions' },
-        { href: base+'services/ai-chatbots.html',       icon: 'fa-comment-dots',        label: 'AI Chatbots' },
-        { href: base+'services/ai-automation.html',     icon: 'fa-wand-magic-sparkles', label: 'AI Automation' },
-        { href: base+'services/generative-ai.html',     icon: 'fa-microchip',           label: 'Generative AI Integration' },
-        { href: base+'services/business-automation.html', icon: 'fa-sitemap',           label: 'Business Automation' },
+        { href: base+'services/ai-image-generation.html', icon: 'fa-image',   label: 'AI Image Generation' },
+        { href: base+'services/ai-video-generation.html', icon: 'fa-film',    label: 'AI Video Generation' },
+        { href: base+'services/ai-music-generation.html', icon: 'fa-music',   label: 'AI Music Generation' },
+        { href: base+'services/ai-3d-generation.html',    icon: 'fa-cube',    label: 'AI 3D Generation' },
+        { href: base+'services/voice-ai-systems.html',    icon: 'fa-microphone', label: 'Voice AI Systems' },
+        { href: base+'services/computer-vision.html',     icon: 'fa-eye',     label: 'Computer Vision' },
+      ]
+    },
+    {
+      icon: 'fa-robot', label: '🤖 AI Agents & Bots', color: '#7eb8ff',
+      items: [
+        { href: base+'services/ai-chatbots.html',              icon: 'fa-comment-dots',  label: 'AI Chatbots' },
+        { href: base+'services/personal-ai-assistants.html',   icon: 'fa-robot',         label: 'Personal AI Assistants' },
+        { href: base+'services/ai-coding-agents.html',         icon: 'fa-code',          label: 'AI Coding Agents' },
+        { href: base+'services/workflow-automation.html',      icon: 'fa-gears',         label: 'Workflow Automation' },
+        { href: base+'services/ai-automation.html',            icon: 'fa-wand-magic-sparkles', label: 'AI Automation' },
+        { href: base+'services/research-experimental-ai.html', icon: 'fa-flask',         label: 'Research & Experimental AI' },
       ]
     },
     {
       icon: 'fa-pen-nib', label: '🎨 Design & Branding', color: '#43a8ff',
       items: [
-        { href: base+'services/ui-ux-design.html',       icon: 'fa-pen-nib',  label: 'UI/UX Design' },
+        { href: base+'services/ui-ux-design.html',        icon: 'fa-pen-nib',  label: 'UI/UX Design' },
         { href: base+'services/logo-brand-identity.html', icon: 'fa-star',     label: 'Logo & Brand Identity' },
         { href: base+'services/graphic-design.html',      icon: 'fa-image',    label: 'Graphic Design' },
         { href: base+'services/landing-page-design.html', icon: 'fa-bullseye', label: 'Landing Page Design' },
@@ -38,49 +50,56 @@ function getNavbar(activePage) {
     {
       icon: 'fa-chart-line', label: '📈 Growth & Marketing', color: '#167DFF',
       items: [
-        { href: base+'service-marketing.html',                 icon: 'fa-chart-bar',       label: 'Digital Marketing' },
-        { href: base+'services/seo-optimization.html',         icon: 'fa-magnifying-glass', label: 'SEO Optimization' },
-        { href: base+'services/social-media-management.html',  icon: 'fa-instagram',       label: 'Social Media Management' },
-        { href: base+'services/performance-marketing.html',    icon: 'fa-bullhorn',        label: 'Performance Marketing' },
-        { href: base+'services/content-strategy.html',         icon: 'fa-file-pen',        label: 'Content Strategy' },
+        { href: base+'service-marketing.html',                icon: 'fa-chart-bar',        label: 'Digital Marketing' },
+        { href: base+'services/seo-optimization.html',        icon: 'fa-magnifying-glass', label: 'SEO Optimization' },
+        { href: base+'services/social-media-management.html', icon: 'fa-instagram',        label: 'Social Media Management' },
+        { href: base+'services/performance-marketing.html',   icon: 'fa-bullhorn',         label: 'Performance Marketing' },
+        { href: base+'services/content-strategy.html',        icon: 'fa-file-pen',         label: 'Content Strategy' },
       ]
     },
     {
-      icon: 'fa-cloud', label: '☁️ Cloud & Infrastructure', color: '#7eb8ff',
+      icon: 'fa-cloud', label: '☁️ Cloud & DevOps', color: '#7eb8ff',
       items: [
         { href: base+'services/aws-cloud-setup.html',    icon: 'fa-aws',    label: 'AWS / Cloud Setup', brand: true },
         { href: base+'services/devops-services.html',    icon: 'fa-docker', label: 'DevOps Services', brand: true },
         { href: base+'services/server-management.html',  icon: 'fa-server', label: 'Server Management' },
         { href: base+'services/hosting-deployment.html', icon: 'fa-rocket', label: 'Hosting & Deployment' },
+        { href: base+'services/video-streaming-platform.html', icon: 'fa-play', label: 'Video Streaming' },
+        { href: base+'services/business-automation.html', icon: 'fa-sitemap', label: 'Business Automation' },
       ]
     },
     {
       icon: 'fa-shield-halved', label: '🛡️ Support & Security', color: '#43a8ff',
       items: [
+        { href: base+'services/cybersecurity-monitoring.html', icon: 'fa-shield-halved',          label: 'Cybersecurity & Monitoring' },
+        { href: base+'services/digital-safety.html',           icon: 'fa-child-reaching',         label: 'Digital Safety' },
+        { href: base+'services/security-audit.html',           icon: 'fa-magnifying-glass-chart', label: 'Security Audit' },
         { href: base+'services/website-maintenance.html',      icon: 'fa-wrench',                 label: 'Website Maintenance' },
         { href: base+'services/technical-support.html',        icon: 'fa-headset',                label: 'Technical Support' },
-        { href: base+'services/security-audit.html',           icon: 'fa-magnifying-glass-chart', label: 'Security Audit' },
         { href: base+'services/performance-optimization.html', icon: 'fa-gauge-high',             label: 'Performance Optimization' },
       ]
     },
   ];
 
-  const megaHtml = categories.map(cat => `
+  function catHtml(cat) {
+    return `
     <div class="mega-col">
       <div class="mega-cat-head">
-        <i class="fa-solid ${cat.icon}" style="color:${cat.color}"></i>
         <span>${cat.label}</span>
       </div>
       <ul class="mega-list">
         ${cat.items.map(item => `
           <li>
             <a href="${item.href}">
-              <i class="${item.brand ? 'fa-brands' : 'fa-solid'} ${item.icon}"></i>
-              ${item.label}
+              <span class="mli-icon"><i class="${item.brand ? 'fa-brands' : 'fa-solid'} ${item.icon}"></i></span>
+              <span>${item.label}</span>
             </a>
           </li>`).join('')}
       </ul>
-    </div>`).join('');
+    </div>`;
+  }
+
+  const megaHtml = `<div class="mega-row mega-row-7">${categories.map(catHtml).join('')}</div>`;
 
   const pages = [
     { href: base+'about.html',     label: 'About' },
@@ -104,7 +123,7 @@ function getNavbar(activePage) {
         <li class="has-dropdown">
           <a href="${base}services.html"${activePage === 'Services' ? ' class="nav-active"' : ''}>Services <i class="fa-solid fa-chevron-down" id="srvChevron" style="font-size:.6rem;margin-left:4px;transition:transform .3s;"></i></a>
           <div class="mega-dropdown">
-            <div class="mega-grid">
+            <div class="mega-rows">
               ${megaHtml}
             </div>
             <div class="mega-footer">

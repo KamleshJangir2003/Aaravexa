@@ -565,11 +565,70 @@
     .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
 
 
+    /* ═══ TECHNICAL CAPABILITIES ═══ */
+    .tech-caps-section {
+      background: #020818;
+      padding: 100px 0;
+      position: relative;
+    }
+    .tech-caps-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(22,125,255,.3), transparent);
+    }
+    .tech-caps-section .section-tag { color: #7eb8ff; }
+    .caps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .cap-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 18px;
+      padding: 24px 20px;
+      transition: .3s;
+    }
+    .cap-card:hover {
+      border-color: rgba(22,125,255,.35);
+      background: rgba(22,125,255,.05);
+      transform: translateY(-4px);
+    }
+    .cap-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: rgba(22,125,255,.1);
+      border: 1px solid rgba(22,125,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: #167DFF;
+      margin-bottom: 14px;
+      transition: .3s;
+    }
+    .cap-card:hover .cap-icon {
+      background: linear-gradient(135deg, #167DFF, #0A2E8A);
+      color: #fff; border-color: transparent;
+      box-shadow: 0 0 18px rgba(22,125,255,.4);
+    }
+    .cap-card h4 {
+      font-size: .9rem; font-weight: 700; color: #fff;
+      margin-bottom: 12px;
+    }
+    .cap-tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .cap-tags span {
+      font-size: .65rem; font-weight: 600;
+      color: rgba(22,125,255,.8);
+      background: rgba(22,125,255,.08);
+      border: 1px solid rgba(22,125,255,.15);
+      padding: 3px 9px; border-radius: 6px;
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .services-grid-v2 { grid-template-columns: repeat(2, 1fr); }
       .portfolio-grid-v2 { grid-template-columns: repeat(2, 1fr); }
       .testi-grid-v2 { grid-template-columns: repeat(2, 1fr); }
+      .caps-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 900px) {
       .ai-showcase-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -588,6 +647,7 @@
       .portfolio-grid-v2 { grid-template-columns: 1fr; }
       .testi-grid-v2 { grid-template-columns: 1fr; }
       .numbers-grid { grid-template-columns: repeat(2,1fr); }
+      .caps-grid { grid-template-columns: repeat(2, 1fr); }
       .cta-v2-box { padding: 40px 24px; }
       .ai-metric { display: none; }
       .nav-links { background: #0a1628 !important; }
@@ -876,6 +936,128 @@
     </div>
     <div style="text-align:center;margin-top:48px;">
       <a href="services.html" class="btn-hero-primary">View All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TECHNICAL CAPABILITIES ═══ -->
+<section class="tech-caps-section">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="section-tag">What We Build</span>
+      <h2 style="color:#fff;">Full-Spectrum Technical Capabilities</h2>
+      <p style="color:rgba(255,255,255,.4);">From AI-generated content to cloud infrastructure — every capability under one roof.</p>
+    </div>
+    <div class="caps-grid">
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-image"></i></div>
+        <h4>AI Image Generation</h4>
+        <div class="cap-tags">
+          <span>Text-to-Image</span><span>Image Editing</span><span>Background Removal</span>
+          <span>Upscaling</span><span>Face Restoration</span><span>Style Transfer</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-film"></i></div>
+        <h4>AI Video Generation</h4>
+        <div class="cap-tags">
+          <span>Text-to-Video</span><span>Image-to-Video</span><span>AI Avatars</span>
+          <span>Lip Sync</span><span>Storyboard</span><span>Video Enhancement</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-music"></i></div>
+        <h4>AI Music Generation</h4>
+        <div class="cap-tags">
+          <span>Lyrics Generation</span><span>Melody Creation</span><span>Text-to-Song</span>
+          <span>Voice Cloning</span><span>AI Mastering</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-cube"></i></div>
+        <h4>AI 3D Generation</h4>
+        <div class="cap-tags">
+          <span>Text-to-3D</span><span>Image-to-3D</span><span>Texture Generation</span>
+          <span>Game Assets</span><span>AR/VR Assets</span><span>OBJ/FBX/GLB/STL</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-microphone"></i></div>
+        <h4>Voice AI Systems</h4>
+        <div class="cap-tags">
+          <span>Speech-to-Text</span><span>Text-to-Speech</span><span>Voice Cloning</span>
+          <span>Wake Word Detection</span><span>Real-Time Conversations</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-eye"></i></div>
+        <h4>Computer Vision</h4>
+        <div class="cap-tags">
+          <span>Object Detection</span><span>OCR</span><span>Face Detection</span>
+          <span>Scene Understanding</span><span>Content Moderation</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+        <h4>Personal AI Assistants</h4>
+        <div class="cap-tags">
+          <span>Text Assistant</span><span>Voice Assistant</span><span>Video Assistant</span>
+          <span>Long-Term Memory</span><span>Knowledge Management</span><span>Full Device Control</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-play-circle"></i></div>
+        <h4>Video Hosting & Streaming</h4>
+        <div class="cap-tags">
+          <span>YouTube-Style Platforms</span><span>OTT Platforms</span><span>Streaming APIs</span>
+          <span>Adaptive Streaming</span><span>Watch History</span><span>Recommendations</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h4>Cybersecurity & Monitoring</h4>
+        <div class="cap-tags">
+          <span>Threat Detection</span><span>Log Analysis</span><span>Vulnerability Reports</span>
+          <span>Security Dashboards</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h4>Mobile Development</h4>
+        <div class="cap-tags">
+          <span>Android (Kotlin)</span><span>Flutter</span><span>React Native</span>
+          <span>Firebase</span><span>Custom Media Players</span><span>Auth Systems</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-server"></i></div>
+        <h4>Cloud & Infrastructure</h4>
+        <div class="cap-tags">
+          <span>Firebase</span><span>Google APIs</span><span>VPS Deployment</span>
+          <span>Linux Servers</span><span>Reverse Proxies</span><span>SSH Tunneling</span>
+        </div>
+      </div>
+
+      <div class="cap-card fade-up">
+        <div class="cap-icon"><i class="fa-solid fa-database"></i></div>
+        <h4>Databases & Analytics</h4>
+        <div class="cap-tags">
+          <span>SQL</span><span>Firebase DB</span><span>User Analytics</span>
+          <span>Business Dashboards</span><span>Performance Monitoring</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
