@@ -876,6 +876,7 @@ body {
     top: 68px; left: 0; right: 0; background: #fff;
     padding: 20px 24px; border-bottom: 1px solid var(--border);
     gap: 4px; max-height: calc(100vh - 68px); overflow-y: auto;
+    z-index: 1000;
   }
   .nav-links.open { display: flex; }
   .nav-links > li > a { display: block; padding: 10px 0; }
@@ -896,15 +897,24 @@ body {
   .hero-stats { gap: 24px; }
   .stat-divider { display: none; }
   .pricing-grid { grid-template-columns: 1fr; }
+  /* Footer mobile */
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  /* Portfolio full card */
+  .portfolio-full-card { flex-direction: column; }
+  .pf-thumb { min-width: unset; height: 160px; }
 }
 
 @media (max-width: 600px) {
   .mv-grid { grid-template-columns: 1fr; }
   .newsletter-form { flex-direction: column; }
-  .footer-top { grid-template-columns: 1fr; gap: 28px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
   .about-badge-grid { grid-template-columns: 1fr 1fr; }
   .sla-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .pf-stats { gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .contact-socials { flex-wrap: wrap; }
 }
 
 /* ── AI SERVICES SHOWCASE ── */
@@ -1003,7 +1013,34 @@ body {
 }
 @media (max-width: 768px) {
   .ai-svc-cards { grid-template-columns: repeat(2, 1fr); }
+  .ai-services-showcase { padding: 60px 0; }
 }
 @media (max-width: 480px) {
   .ai-svc-cards { grid-template-columns: 1fr; }
+  .ai-cat-label { font-size: .7rem; padding: 6px 12px; }
+}
+
+/* ── FOOTER MOBILE ── */
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ── GENERAL SECTION SPACING MOBILE ── */
+@media (max-width: 480px) {
+  .ai-showcase,
+  .services-dark,
+  .numbers-section,
+  .why-dark,
+  .portfolio-dark,
+  .testi-dark,
+  .cta-v2,
+  .tech-caps-section { padding: 60px 0; }
+  .section-head { margin-bottom: 36px; }
+  .section-head h2 { font-size: 1.6rem; }
+  /* Why grid 1 column on small phones */
+  .why-grid-v2 { grid-template-columns: 1fr; }
+  /* Number items — remove border artifacts */
+  .number-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.1); padding: 0 8px 24px; }
+  .number-item:last-child, .number-item:nth-last-child(2):nth-child(odd) { border-bottom: none; padding-bottom: 0; }
 }
