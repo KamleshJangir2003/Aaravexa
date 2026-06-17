@@ -906,3 +906,104 @@ body {
   .about-badge-grid { grid-template-columns: 1fr 1fr; }
   .sla-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── AI SERVICES SHOWCASE ── */
+.ai-services-showcase {
+  background: #030d1a;
+  padding: 100px 0;
+  position: relative;
+}
+.ai-services-showcase::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(22,125,255,.4), transparent);
+}
+
+.ai-cat-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #7eb8ff; font-size: .78rem; font-weight: 700;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  background: rgba(22,125,255,.1);
+  border: 1px solid rgba(22,125,255,.2);
+  padding: 7px 16px; border-radius: 100px;
+  margin-bottom: 20px;
+}
+.ai-cat-label i { font-size: .85rem; }
+
+.ai-svc-cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.ai-svc-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: .3s;
+  display: flex; flex-direction: column;
+}
+.ai-svc-card:hover {
+  border-color: rgba(22,125,255,.4);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(22,125,255,.15);
+}
+
+.ai-svc-img {
+  height: 130px;
+  position: relative;
+  overflow: hidden;
+}
+.ai-svc-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+  filter: saturate(0.7) brightness(0.75);
+}
+.ai-svc-card:hover .ai-svc-img img {
+  transform: scale(1.08);
+  filter: saturate(1) brightness(0.85);
+}
+.ai-svc-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(3,13,26,.9));
+  display: flex; align-items: flex-end; justify-content: flex-start;
+  padding: 10px 12px;
+}
+.ai-svc-img-overlay i {
+  font-size: 1.2rem; color: #167DFF;
+  background: rgba(22,125,255,.2);
+  border: 1px solid rgba(22,125,255,.35);
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.ai-svc-body {
+  padding: 14px 16px 16px;
+  flex: 1; display: flex; flex-direction: column; gap: 4px;
+}
+.ai-svc-body h4 {
+  font-size: .85rem; font-weight: 700; color: #fff; line-height: 1.3;
+}
+.ai-svc-body p {
+  font-size: .72rem; color: rgba(255,255,255,.4); line-height: 1.5; flex: 1;
+}
+.ai-svc-arrow {
+  font-size: .72rem; font-weight: 600; color: rgba(22,125,255,.7);
+  margin-top: 8px; display: flex; align-items: center; gap: 5px;
+  transition: color .2s, gap .2s;
+}
+.ai-svc-card:hover .ai-svc-arrow { color: #167DFF; gap: 8px; }
+
+@media (max-width: 1200px) {
+  .ai-svc-cards { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .ai-svc-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .ai-svc-cards { grid-template-columns: 1fr; }
+}
