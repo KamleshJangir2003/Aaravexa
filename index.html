@@ -731,6 +731,28 @@
       .portfolio-grid-v2 { grid-template-columns: 1fr; }
       .hero-scroll-v2 { display: none; }
     }
+
+
+    /**ai css video**/
+    .ai-real-img{
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.ai-real-img video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ai-real-img-overlay{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+}
   </style>
 </head>
 <body>
@@ -827,12 +849,16 @@
               </div>
             </div>
             <div class="ai-real-img">
-              <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80" alt="AI" loading="lazy"/>
-              <div class="ai-real-img-overlay">
-                <span><i class="fa-solid fa-brain"></i> Neural Network</span>
-                <span><i class="fa-solid fa-bolt"></i> Processing</span>
-              </div>
-            </div>
+    <video autoplay muted loop playsinline>
+        <source src="video/ai video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="ai-real-img-overlay">
+        <span><i class="fa-solid fa-brain"></i> Neural Network</span>
+        <span><i class="fa-solid fa-bolt"></i> Processing</span>
+    </div>
+</div>
             <div class="ai-typing-box">
               <div class="ai-typing-label">AI Response</div>
               <div class="ai-typing-text" id="aiTypingText">
@@ -928,7 +954,7 @@
 
         <a href="services/ai-image-generation.html" class="ai-svc-card">
           <div class="ai-svc-img">
-            <img src="https://images.unsplash.com/photo-1655720031554-a929595ffad7?w=400&q=80" alt="AI Image Generation" loading="lazy"/>
+            <img src="video/AI Image Generation.jpg" alt="AI Image Generation" loading="lazy"/>
             <div class="ai-svc-img-overlay"><i class="fa-solid fa-image"></i></div>
           </div>
           <div class="ai-svc-body">
@@ -938,21 +964,29 @@
           </div>
         </a>
 
-        <a href="services/ai-video-generation.html" class="ai-svc-card">
-          <div class="ai-svc-img">
-            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&q=80" alt="AI Video Generation" loading="lazy"/>
-            <div class="ai-svc-img-overlay"><i class="fa-solid fa-film"></i></div>
-          </div>
-          <div class="ai-svc-body">
-            <h4>AI Video Generation</h4>
-            <p>Text-to-video, AI avatars, lip sync & enhancement</p>
-            <span class="ai-svc-arrow">Explore <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
+       <a href="services/ai-video-generation.html" class="ai-svc-card">
+    <div class="ai-svc-img">
+        <video autoplay muted loop playsinline>
+            <source src="video/AI video (2).mp4" type="video/mp4">
+        </video>
+
+        <div class="ai-svc-img-overlay">
+            <i class="fa-solid fa-film"></i>
+        </div>
+    </div>
+
+    <div class="ai-svc-body">
+        <h4>AI Video Generation</h4>
+        <p>Text-to-video, AI avatars, lip sync & enhancement</p>
+        <span class="ai-svc-arrow">
+            Explore <i class="fa-solid fa-arrow-right"></i>
+        </span>
+    </div>
+</a>
 
         <a href="services/ai-music-generation.html" class="ai-svc-card">
           <div class="ai-svc-img">
-            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80" alt="AI Music Generation" loading="lazy"/>
+            <img src="video/AI Music Generation.jpg" alt="AI Music Generation" loading="lazy"/>
             <div class="ai-svc-img-overlay"><i class="fa-solid fa-music"></i></div>
           </div>
           <div class="ai-svc-body">
