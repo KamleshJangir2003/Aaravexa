@@ -143,12 +143,12 @@ function getFooter() {
     '<img src="' + base + 'image/footer-logo.png" alt="Aaravexa Technology" style="height:60px;width:auto;display:block;" />' +
     '</a>' +
     '<p class="footer-tagline">Building the Future with AI</p>' +
-    '<p class="footer-desc">We craft digital solutions that drive real business growth &mdash; websites, apps, AI tools & cloud infrastructure.</p>' +
+    '<p class="footer-desc">Aaravexa Technology provides AI solutions, website development, mobile app development, cloud infrastructure and digital marketing services for businesses across India.</p>' +
     '<div class="footer-social">' +
     '<a href="mailto:aaravexatechnologies@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>' +
     '<a href="tel:+916378409986" title="Phone"><i class="fa-solid fa-phone"></i></a>' +
-    '<a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>' +
-    '<a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>' +
+    '<a href="https://www.instagram.com/aaravexatechnology" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>' +
+    '<a href="https://www.linkedin.com/in/aaravexa-technology-403a6b417/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>' +
     '</div></div>' +
     '<div class="footer-col"><h5>Development</h5>' +
     '<a href="' + base + 'services/website-development.html">Website Development</a>' +
@@ -173,9 +173,10 @@ function getFooter() {
     '<a href="' + base + 'services/seo-optimization.html">SEO Optimization</a>' +
     '<a href="' + base + 'services/technical-support.html">Support &amp; Security</a>' +
     '<p style="color:rgba(255,255,255,.45);font-size:.82rem;margin-top:8px;">Mon&ndash;Sat, 9am&ndash;7pm IST</p>' +
+    '<p style="color:rgba(255,255,255,.65);font-size:.85rem;"><i class="fa-solid fa-location-dot"></i> Nohar, Rajasthan, India</p>' +
     '</div></div>' +
     '<div class="footer-bottom">' +
-    '<p>&copy; 2025 Aaravexa Technology. All rights reserved.</p>' +
+    '<p>&copy; 2026 Aaravexa Technology. All rights reserved.</p>' +
     '<p>&#x1F680; Web &bull; App &bull; AI Solutions &nbsp;|&nbsp; &#x1F4BB; Software &bull; Cloud &bull; Automation</p>' +
     '</div></div></footer>';
 }
